@@ -1,12 +1,10 @@
-import pandas as pd
 import joblib
-
+import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
-
 
 DATA = "churn_v2.csv"
 
