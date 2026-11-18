@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+pandas
+scikit-learn
+joblib
+httpx
+pytest
+mlflow==3.17.0

@@ -1,3 +1,4 @@
+
 FROM python:3.12.3-slim AS builder
 
 WORKDIR /app
@@ -6,7 +7,6 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
-
 FROM python:3.12.3-slim
 
 WORKDIR /app
@@ -14,9 +14,12 @@ WORKDIR /app
 RUN useradd --create-home appuser
 
 COPY --from=builder /install /usr/local
+
 COPY src ./src
-COPY model.joblib .
-COPY churn_v2.csv .
+
+# Lab 3: Use the promoted champion model
+COPY artifacts/model.joblib ./model.joblib
+COPY artifacts/metadata.json ./artifacts/metadata.json
 
 USER appuser
 
